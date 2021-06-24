@@ -50,4 +50,5 @@ function messageDiscord(webhook, scrumMasters) {
     avatarURL: "https://i.imgur.com/wSTFkRM.png",
     embeds: [embed],
   });
+  return;
 }
