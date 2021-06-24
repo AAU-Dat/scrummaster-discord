@@ -18,16 +18,16 @@ try {
 }
 
 function determineScrumMasters(team, number, variance = 1) {
-  const scrumMasterOne = team.splice(number % team.length(), 1);
-  const scrumMasterTwo = team.splice((number + variance) % team.length());
+  const scrumMasterOne = team.splice(number % team.length, 1);
+  const scrumMasterTwo = team.splice((number + variance) % team.length);
   let scrumMasters = scrumMasterOne.concat(scrumMasterTwo);
   return scrumMasters;
 }
 
 function messageDiscord(webhook, scrumMasters) {
   const webhookClient = new Discord.WebhookClient(
-    webhook[webhook.length() - 2],
-    webhook.length() - 1
+    webhook[webhook.length - 2],
+    webhook.length - 1
   );
 
   const embed = new Discord.MessageEmbed()
