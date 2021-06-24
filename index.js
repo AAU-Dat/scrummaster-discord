@@ -27,7 +27,7 @@ function determineScrumMasters(team, number, variance = 1) {
 function messageDiscord(webhook, scrumMasters) {
   const webhookClient = new Discord.WebhookClient(
     webhook[webhook.length - 2],
-    webhook.length - 1
+    webhook[webhook.length - 1]
   );
 
   const embed = new Discord.MessageEmbed()
