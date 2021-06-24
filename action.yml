@@ -7,9 +7,6 @@ inputs:
   webhook: # id of second input
     description: "The discord webhook to message"
     required: true
-outputs:
-  time: # id of output
-    description: "The time we greeted you"
 runs:
   using: "node12"
   main: "index.js"
