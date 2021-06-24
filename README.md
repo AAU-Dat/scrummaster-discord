@@ -6,8 +6,6 @@ Github action to determine a team's scrummasters and post it in the team discord
 
 team should be a JSON string with an array of strings, with minimum 2 members.
 
-team: "["Octo", "Cat"]"
-
 webhook should be a discord webhook in the form of an URL.
 
 ### examples
