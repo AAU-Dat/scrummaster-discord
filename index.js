@@ -10,8 +10,21 @@ try {
   const githubRunNumber = process.env.GITHUB_RUN_NUMBER;
   const githubRunID = process.env.GITHUB_RUN_ID;
   console.log("numbers: " + githubRunNumber, githubRunID);
+  const scrumMasters = determineScrumMasters(
+    team,
+    githubRunNumber,
+    githubRunID
+  );
+  console.log("Scrummasters:", scrumMasters);
 } catch (error) {
   core.setFailed(error.message);
+}
+
+function determineScrumMasters(team, number, variance = 1) {
+  const scrumMasterOne = team.splice(number % team.length, 1);
+  const scrumMasterTwo = team.splice((number + variance) % team.length, 1);
+  let scrumMasters = scrumMasterOne.concat(scrumMasterTwo);
+  return scrumMasters;
 }
 
 // try {
