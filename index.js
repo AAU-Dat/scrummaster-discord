@@ -16,11 +16,11 @@ try {
     githubRunID
   );
   console.log("Scrummasters:", scrumMasters);
-  const testResult = messageDiscord(webhook, scrumMasters);
-  console.log("Should exit with 1: ", testResult);
+  xml(webhook);
 } catch (error) {
   core.setFailed(error.message);
 }
+console.log("Are we done yet?");
 
 function determineScrumMasters(team, number, variance = 1) {
   const scrumMasterOne = team.splice(number % team.length, 1);
@@ -119,3 +119,14 @@ function messageDiscord(webhook, scrumMasters) {
 //   });
 //   return;
 // }
+
+function xml(webhook) {
+  let request = new XMLHttpRequest();
+  request.open("POST", webhook);
+  request.setRequestHeader("Content-Type", "application/json");
+
+  const params = { username: "Github Action", content: "I'm happy" };
+
+  request.send(JSON.stringify(params));
+  console.log("XML sent");
+}
