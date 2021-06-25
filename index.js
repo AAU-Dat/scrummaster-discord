@@ -65,8 +65,9 @@ function postScrumMastersDiscord(embed) {
       avatarURL: ICON_URL,
       embeds: [embed],
     })
-    .destroy()
     .catch(console.error);
+
+  webhookClient.destroy();
 }
 
 function breakWebhook(webhook) {
