@@ -3,7 +3,13 @@ const github = require("@actions/github");
 const Discord = require("discord.js");
 
 try {
-  console.log("Will Pharell - Happy");
+  const team = JSON.parse(core.getInput("team"));
+  const webhook = core.getInput("webhook").split("/");
+  console.log("Will Pharell - Happy", team, webhook);
+
+  const githubRunNumber = process.env.GITHUB_RUN_NUMBER;
+  const githubRunID = process.env.GITHUB_RUN_ID;
+  console.log("numbers: " + githubRunNumber, githubRunID);
 } catch (error) {
   core.setFailed(error.message);
 }
