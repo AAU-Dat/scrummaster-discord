@@ -17,6 +17,9 @@ try {
 function determineScrumMasters(team) {
   if (team.length < 2) throw new Error("You need a larger team");
 
+  const number = process.env.GITHUB_RUN_NUMBER;
+  const variance = process.env.GITHUB_RUN_ID;
+
   const scrumMasterOne = team.splice(number % team.length, 1);
   const scrumMasterTwo = team.splice((number + variance) % team.length, 1);
 
